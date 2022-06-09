@@ -11,4 +11,16 @@
         "durability": 40,
         "hp": 100
     },
+    {
+        "name": "1",
+        "size": 1,
+        "durability": 1,
+        "hp": 11
+    },
+    {
+        "name": "2",
+        "size": 3,
+        "durability": 3,
+        "hp": 4
+    }
 ]

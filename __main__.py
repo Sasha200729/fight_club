@@ -1,12 +1,15 @@
 from FK import start
 from items.items import create_armor, create_weapon
 
+from avatar.avatar import  create_avatar
 
 def set_armor():
     pass
 
 
 def set_weapon():
+    pass
+def set_avatar():
     pass
 
 
@@ -15,7 +18,9 @@ MENU_ITEMS = {
     "Create armor": create_armor,
     "Create weapon": create_weapon,
     "Set armor": set_armor,
-    "Set weapon": set_weapon
+    "Set weapon": set_weapon,
+    "Create avatar": create_avatar,
+    "Set avatar" : set_avatar
 }
 
 

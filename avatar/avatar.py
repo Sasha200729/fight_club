@@ -1,3 +1,10 @@
+import json
+
+from settings import BASE_DIR
+from utils import save_data
+avatars_path = BASE_DIR.joinpath("avatar/save_folder/avatars.json")
+
+
 class Avatar:
 
     body_parts = ["head", "torso", "leg", "hand"]
@@ -16,6 +23,14 @@ class Avatar:
         if self.defence != other.attack:
             self.hp = self.hp - other.power
         return self
+
+
+    def get_data_for_save(self):
+        return {
+            "name": self.name,
+            "hp": self.hp,
+            "power": self.power
+            }
 
     def set_amunition(self, item, name_item, avatar_parameter):
         if getattr(self, name_item, None):
@@ -43,3 +58,18 @@ class Avatar:
             self.power -= self.weapon.power
         self.weapon = weapon
         self.power += self.weapon.power
+
+with open(avatars_path) as f:
+    avatars_list = [Avatar(**i) for i in json.load(f)]
+
+
+
+
+
+def create_avatar():
+    global avatars_list
+    name = input("Name:")
+    hp = int(input("HP:"))
+    power = int(input("Power:"))
+    avatars_list += [Avatar(name, hp, power)]
+    save_data(avatars_path, [i.get_data_for_save() for i in avatars_list])

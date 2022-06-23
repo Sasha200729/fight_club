@@ -1,14 +1,11 @@
 from FK import start
-from items.items import create_armor, create_weapon
+from items.items import create_armor, create_weapon, set_armor, set_weapon
 
 from avatar.avatar import  create_avatar
 
-def set_armor():
-    pass
 
 
-def set_weapon():
-    pass
+
 def set_avatar():
     pass
 

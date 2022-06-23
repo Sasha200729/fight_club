@@ -72,6 +72,12 @@ def create_armor():
     save_data(armors_path, [i.get_data_for_save() for i in armors_list])
 
 
+def print_parts(parts):
+
+    for i in range(len(parts)):
+        print(f"{i}:", f"{parts[i]}")
+
+
 def create_weapon():
     global weapons_list
     name = input("Name:")
@@ -80,3 +86,19 @@ def create_weapon():
     power = int(input("Power:"))
     weapons_list += [Weapon(name, size, durability, power)]
     save_data(weapons_path, [i.get_data_for_save() for i in weapons_list])
+
+
+
+
+def set_weapon():
+    global weapons_list
+    print_parts(weapons_list)
+    weapon = weapons_list[int(input("Choose: "))]
+    print(weapon)
+
+
+def set_armor():
+    global armors_list
+    print_parts(armors_list)
+    armor = armors_list[int(input("Choose: "))]
+    print(armor)

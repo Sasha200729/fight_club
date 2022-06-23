@@ -1,1 +1,14 @@
-[{"name": "World", "size": 30, "durability": 40, "power": 50}]
+[
+    {
+        "name": "World",
+        "size": 30,
+        "durability": 40,
+        "power": 50
+    },
+    {
+        "name": "simple",
+        "size": 10,
+        "durability": 50,
+        "power": 100
+    }
+]

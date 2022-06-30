@@ -16,6 +16,14 @@ class Avatar:
         self.hp = hp
         self.power = power
 
+    def __str__(self):
+        return "Name:{0}, Hp:{1}, Power:{2}".format(
+            self.name,
+            self.hp,
+            self.power
+        )
+
+
     def __truediv__(self, other):
         # Как проходит операция деления.
         if self.attack != other.defence:
@@ -63,7 +71,10 @@ with open(avatars_path) as f:
     avatars_list = [Avatar(**i) for i in json.load(f)]
 
 
+def print_parts(parts):
 
+    for i in range(len(parts)):
+        print(f"{i}:", f"{parts[i]}")
 
 
 def create_avatar():
@@ -73,3 +84,10 @@ def create_avatar():
     power = int(input("Power:"))
     avatars_list += [Avatar(name, hp, power)]
     save_data(avatars_path, [i.get_data_for_save() for i in avatars_list])
+
+
+def set_avatar():
+    global avatars_list
+    print_parts(avatars_list)
+    avatar = avatars_list[int(input("Choose: "))]
+    print(avatar)

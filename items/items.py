@@ -102,3 +102,10 @@ def set_armor():
     print_parts(armors_list)
     armor = armors_list[int(input("Choose: "))]
     print(armor)
+
+
+def set_avatar():
+    global avatars_list
+    print_parts(avatars_list)
+    avatar = avatars_list[int(input("Choose: "))]
+    print(avatar)

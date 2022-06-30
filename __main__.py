@@ -1,13 +1,11 @@
 from FK import start
 from items.items import create_armor, create_weapon, set_armor, set_weapon
 
-from avatar.avatar import  create_avatar
+from avatar.avatar import  create_avatar, set_avatar
 
 
 
 
-def set_avatar():
-    pass
 
 
 MENU_ITEMS = {

@@ -1,7 +1,12 @@
 [
     {
-        "name": "den",
-        "hp": 100,
+        "name": "max",
+        "hp": 123,
         "power": 15
+    },
+    {
+        "name": "dan",
+        "hp": 100,
+        "power": 50
     }
 ]

@@ -1,6 +1,8 @@
+import json
+
 from random import randint
-from items.items import Armor, Weapon
-from avatar.avatar import Avatar
+from items.items import Armor, Weapon, armors_path, weapons_path
+from avatar.avatar import Avatar, avatars_path
 
 
 def print_parts(parts):
@@ -35,3 +37,87 @@ def start():
         player / enemy
         print("player: ", player.hp)
         print("enemy: ", enemy.hp)
+
+
+
+
+
+
+class Game:
+    avatar = None
+    boss = None
+    menu_items = [
+        'set_weapon' ,
+        'create_weapon' ,
+        'set_avatar' ,
+        'create_avatar' ,
+        'set_armor' ,
+        'create_armor' ,
+        ]
+
+    def __init__(self):
+        self.enemies = []
+        self.items = []
+
+        self.skills = []
+
+        with open(avatars_path) as f:
+            self.avatars = [Avatar(**i) for i in json.load(f)]
+        with open(armors_path) as f:
+            self.armors = [Armor(**i) for i in json.load(f)]
+        with open(weapons_path) as f:
+            self.weapons = [Weapon(**i) for i in json.load(f)]
+
+    def create_avatar(self):
+        name = input("Name:")
+        hp = int(input("HP:"))
+        power = int(input("Power:"))
+        self.avatars += [Avatar(name, hp, power)]
+        save_data(avatars_path, [i.get_data_for_save() for i in self.avatars])
+
+    def set_avatar(self):
+        print_parts(self.avatars)
+        avatar = self.avatars[int(input("Choose: "))]
+        print(avatar)
+
+    def create_weapon(self):
+        name = input("Name:")
+        size = int(input("Size:"))
+        durability = int(input("Durability:"))
+        power = int(input("Power:"))
+        self.weapons += [Weapon(name, size, durability, power)]
+        save_data(weapons_path, [i.get_data_for_save() for i in self.weapons])
+
+    def set_weapon(self):
+
+        print_parts(self.weapons)
+        weapon = self.weapons[int(input("Choose: "))]
+        print(weapon)
+
+
+    def set_armor(self):
+
+        print_parts(self.armors)
+        armor = self.armors[int(input("Choose: "))]
+        print(armor)
+
+
+    def set_avatar(self):
+
+        print_parts(self.avatars)
+        avatar = self.avatars[int(input("Choose: "))]
+        print(avatar)
+
+
+
+
+
+
+
+
+
+
+
+
+#game -= Game()
+#print(game.enemies)

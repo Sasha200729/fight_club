@@ -1,5 +1,5 @@
 import sys
-from FK import start
+from FK import start ,  Game
 
 from items.items import create_armor, create_weapon, set_armor, set_weapon
 
@@ -30,11 +30,12 @@ def print_parts(parts):
 
 
 def main():
-    list_key = list(MENU_ITEMS.keys())
+    game = Game()
+    list_key = game.menu_items
     print_parts(list_key)
     option = int(input("Choose option: "))
-    MENU_ITEMS[list_key[option]]()
+    getattr(game, game.menu_items[option])()
 
 
 if __name__ == '__main__':
-    while True : main() 
+    while True : main()

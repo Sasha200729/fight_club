@@ -10,5 +10,11 @@
         "size": 10,
         "durability": 50,
         "power": 100
+    },
+    {
+        "name": "tom",
+        "size": 100,
+        "durability": 20,
+        "power": 20
     }
 ]

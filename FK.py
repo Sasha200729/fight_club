@@ -69,9 +69,10 @@ class Game:
 
     def set_weapon(self):
 
-        print_parts(self.weapons)
-        weapon = self.weapons[int(input("Choose: "))]
-        print(weapon)
+        print(self.avatar)
+        if self.avatar is None:
+            print('Choose avatar before set weapon')
+            return False
 
 
     def set_armor(self):
@@ -103,6 +104,19 @@ class Game:
         print_parts(self.enemies)
         self.boss = self.enemies[int(input("Choose: "))]
         print(self.boss)
+
+    def set_weapon(self):
+        print(self.enemies)
+        if self.enemies is None:
+            print('Choose enemies before set weapon')
+            return False
+
+
+    def set_armor(self):
+        print(self.enemies)
+        if self.enemies is None:
+            print('Choose enemies before set weapon')
+            return False    
 
     def start():
         player = Avatar("Peter", 100, 10)

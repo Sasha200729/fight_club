@@ -4,38 +4,33 @@ from utils import save_data
 from random import randint
 from items.items import Armor, Weapon, armors_path, weapons_path
 from avatar.avatar import Avatar, avatars_path, enemies_path
+
+
 def print_parts(parts):
     for i in range(len(parts)):
         print(f"{i}:", f"{parts[i]}")
-
-
-
-
-
-
 
 
 class Game:
     avatar = None
     boss = None
     menu_items = [
-        'set_weapon' ,
-        'create_weapon' ,
-        'set_avatar' ,
-        'create_avatar' ,
-        'set_armor' ,
-        'create_armor' ,
+        'set_weapon',
+        'create_weapon',
+        'set_avatar',
+        'create_avatar',
+        'set_armor',
+        'create_armor',
         'create_enemy',
         'set_enemy',
         'exit'
-        ]
+    ]
 
     def __init__(self):
         self.enemies = []
         self.items = []
 
         self.skills = []
-
 
         with open(avatars_path) as f:
             self.avatars = [Avatar(**i) for i in json.load(f)]
@@ -46,8 +41,6 @@ class Game:
         with open(enemies_path) as f:
             self.enemies = [Avatar(**i) for i in json.load(f)]
 
-
-
     def exit(self):
         sys.exit("EXIT")
 
@@ -57,7 +50,6 @@ class Game:
         power = int(input("Power:"))
         self.avatars += [Avatar(name, hp, power)]
         save_data(avatars_path, [i.get_data_for_save() for i in self.avatars])
-
 
     def create_weapon(self):
         name = input("Name:")
@@ -73,7 +65,6 @@ class Game:
         weapon = self.weapons[int(input("Choose: "))]
         print(weapon)
 
-
     def set_armor(self):
         print(self.avatar)
         if self.avatar is None:
@@ -84,7 +75,6 @@ class Game:
         armor = self.armors[int(input("Choose: "))]
         self.avatar.set_amunition(armor, "armor", "hp")
         print(armor)
-
 
     def set_avatar(self):
 
@@ -133,12 +123,5 @@ class Game:
             print("enemy: ", enemy.hp)
 
 
-
-
-
-
-
-
-
 #game -= Game()
-#print(game.enemies)
+# print(game.enemies)

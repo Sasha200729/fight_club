@@ -23,6 +23,9 @@ class Game:
         'create_armor',
         'create_enemy',
         'set_enemy',
+        'set_enemy_armor',
+        'set_enemy_weapon',
+        'view',
         'exit'
     ]
 
@@ -66,6 +69,11 @@ class Game:
             print('Choose avatar before set weapon')
             return False
 
+        print_parts(self.weapons)
+        weapon = self.weapons[int(input("Choose: "))]
+        self.avatar.set_amunition(weapon, "weapon", "power")
+        print(weapon)
+
     def set_armor(self):
         print(self.avatar)
         if self.avatar is None:
@@ -95,28 +103,30 @@ class Game:
         self.boss = self.enemies[int(input("Choose: "))]
         print(self.boss)
 
-    def set_weapon(self):
-        print(self.enemies)
-        if self.enemies is None:
+    def set_enemy_weapon(self):
+        print(self.boss)
+        if self.boss is None:
             print('Choose enemies before set weapon')
             return False
 
+        print_parts(self.weapons)
+        enemy_weapon = self.weapons[int(input("Choose: "))]
+        self.boss.set_amunition(enemy_weapon, "weapon", "power")
+        print(enemy_weapon)
 
-    def set_armor(self):
-        print(self.enemies)
-        if self.enemies is None:
+    def set_enemy_armor(self):
+        print(self.boss)
+        if self.boss is None:
             print('Choose enemies before set weapon')
-            return False    
+            return False
+        print_parts(self.armors)
+        enemy_armor = self.armors[int(input("Choose: "))]
+        self.boss.set_amunition(enemy_armor, "armor", "hp")
+        print(enemy_armor)
 
-    def start():
-        player = Avatar("Peter", 100, 10)
-        enemy = Avatar("Enemy", 200, 5)
-        armor = Armor("Dragon armor", 2, 30, 50)
-        weapon = Weapon("Dragon sword", 2, 30, 50)
-        player.set_amunition(armor, "armor", "hp")
-        player.set_amunition(weapon, "weapon", "power")
-        print(player.armor, player.hp)
-        print(player.weapon, player.power)
+
+
+    def start(self):
         while player.hp > 0 and enemy.hp > 0:
 
             print("Choose parts for attack")
@@ -136,6 +146,13 @@ class Game:
             print("player: ", player.hp)
             print("enemy: ", enemy.hp)
 
+    def __str__(self):
+
+        return '\n'.join([str(self.avatar) , str(self.boss) ])
+
+    def view(self):
+        print(self)
+        input()
 
 #game -= Game()
 # print(game.enemies)

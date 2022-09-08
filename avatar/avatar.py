@@ -3,6 +3,7 @@ import json
 from settings import BASE_DIR
 from utils import save_data
 avatars_path = BASE_DIR.joinpath("avatar/save_folder/avatars.json")
+enemies_path = BASE_DIR.joinpath("avatar/save_folder/enemies.json")
 
 
 class Avatar:

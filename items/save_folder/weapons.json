@@ -16,5 +16,17 @@
         "size": 100,
         "durability": 20,
         "power": 20
+    },
+    {
+        "name": "Bow",
+        "size": 5,
+        "durability": 100,
+        "power": 100
+    },
+    {
+        "name": "mace ",
+        "size": 8,
+        "durability": 120,
+        "power": 150
     }
 ]

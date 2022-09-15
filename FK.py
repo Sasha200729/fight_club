@@ -15,6 +15,7 @@ class Game:
     avatar = None
     boss = None
     menu_items = [
+        'start',
         'set_weapon',
         'create_weapon',
         'set_avatar',
@@ -127,24 +128,24 @@ class Game:
 
 
     def start(self):
-        while player.hp > 0 and enemy.hp > 0:
+        while self.avatar.hp > 0 and self.boss.hp > 0:
 
             print("Choose parts for attack")
-            print_parts(enemy.body_parts)
-            player.attack = int(input("part number: "))
+            print_parts(self.boss.body_parts)
+            self.avatar.attack = int(input("part number: "))
             print("Choose parts for defence")
-            print_parts(player.body_parts)
-            player.defence = int(input("part number: "))
+            print_parts(self.avatar.body_parts)
+            self.avatar.defence = int(input("part number: "))
             # here
-            attack_part = randint(0, len(player.body_parts)-1)
-            enemy.attack = attack_part
-            print("Enemy attack:", player.body_parts[attack_part])
-            defence_part = randint(0, len(enemy.body_parts)-1)
-            enemy.defence = defence_part
-            print("Enemy defence:", player.body_parts[defence_part])
-            player / enemy
-            print("player: ", player.hp)
-            print("enemy: ", enemy.hp)
+            attack_part = randint(0, len(self.avatar.body_parts)-1)
+            self.avatar.attack = attack_part
+            print("Enemy attack:", self.avatar.body_parts[attack_part])
+            defence_part = randint(0, len(self.boss.body_parts)-1)
+            self.boss.defence = defence_part
+            print("Enemy defence:", self.avatar.body_parts[defence_part])
+            self.avatar / self.boss
+            print("avatar: ", self.avatar.hp)
+            print("boss: ", self.avatar.hp)
 
     def __str__(self):
 

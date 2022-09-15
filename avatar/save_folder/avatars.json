@@ -13,5 +13,10 @@
         "name": "jack",
         "hp": 100,
         "power": 50
+    },
+    {
+        "name": "sensei",
+        "hp": 100,
+        "power": 50
     }
 ]

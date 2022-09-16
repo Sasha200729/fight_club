@@ -1,3 +1,4 @@
+from tkinter import *
 import json
 import sys
 from utils import save_data
@@ -9,7 +10,26 @@ from avatar.avatar import Avatar, avatars_path, enemies_path
 def print_parts(parts):
     for i in range(len(parts)):
         print(f"{i}:", f"{parts[i]}")
+class GameWindow:
+    window = Tk()
 
+
+    def __init__(self):
+        self.window.title("CHOICE OF THE BEST!")
+        self.window.geometry('400x250')
+        self.lbl = Label(self.window, text="Welcome to the game!")
+        self.lbl.grid(column=3, row=2)
+        self.txt = Entry(self.window,width=10)
+        self.txt.grid(column=1, row=0)
+        self.btn = Button(self.window, text="Go!", command=self.clicked)
+        self.btn.grid(column=2, row=0)
+        self.btn_exit = Button(self.window, text="Exit", command=self.window.destroy)
+        self.btn_exit.grid(column=0, row=1)
+    def clicked(self):
+        self.lbl.configure(text="Write Start to start the game")
+
+    def open_window(self):
+        self.window.mainloop()
 
 class Game:
     avatar = None

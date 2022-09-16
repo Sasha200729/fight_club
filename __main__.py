@@ -1,5 +1,5 @@
 import sys
-from FK import Game
+from FK import Game, GameWindow
 
 from items.items import create_armor, create_weapon, set_armor, set_weapon
 
@@ -20,6 +20,7 @@ def main(game):
 
 
 if __name__ == '__main__':
-    game = Game()
-    while True:
-        main(game)
+    # game = Game()
+    # while True:
+    #     main(game)
+    GameWindow().open_window()

@@ -1,4 +1,5 @@
-from tkinter import *
+#from tkinter import *
+from tkinter import Tk, Label, Button, Entry, Toplevel, Frame
 import json
 import sys
 from utils import save_data
@@ -7,11 +8,18 @@ from items.items import Armor, Weapon, armors_path, weapons_path
 from avatar.avatar import Avatar, avatars_path, enemies_path
 
 
+
 def print_parts(parts):
     for i in range(len(parts)):
         print(f"{i}:", f"{parts[i]}")
 class GameWindow:
     window = Tk()
+
+
+
+
+
+
 
 
     def __init__(self):
@@ -25,11 +33,134 @@ class GameWindow:
         self.btn.grid(column=2, row=0)
         self.btn_exit = Button(self.window, text="Exit", command=self.window.destroy)
         self.btn_exit.grid(column=0, row=1)
+
     def clicked(self):
-        self.lbl.configure(text="Write Start to start the game")
+        self.lbl.configure(text=self.txt.get())
+        # print(*dir(self.txt),sep = "\n")
+        print(self.txt.get())
 
     def open_window(self):
         self.window.mainloop()
+
+    def createSetWeapon(self):
+        tk = Tk()
+        newWindow = Frame(tk)
+        labelExample = Label(newWindow, text = "New Window")
+        buttonExample = Button(newWindow, text = "New Window button")
+
+        labelExample.pack()
+        buttonExample.pack()
+
+
+
+
+        newWindow.mainloop()
+    #
+    # def createCreateWeapon(self):
+    #     tk = Tk()
+    #     newWindow = tk.Toplevel(tk)
+    #     labelExample = Label(tk, newWindow, text = "New Window")
+    #     buttonExample = Button(tk, newWindow, text = "New Window button")
+    #
+    #     labelExample.pack()
+    #     buttonExample.pack()
+    #
+    #
+    #
+    #
+    #     tk.mainloop()
+    #
+    # def createCreate_avatar(self):
+    #     tk = Tk()
+    #     newWindow = Toplevel(tk)
+    #     labelExample = Label(tk, newWindow, text = "New Window")
+    #     buttonExample = Button(tk, newWindow, text = "New Window button")
+    #
+    #     labelExample.pack()
+    #     buttonExample.pack()
+    #
+    #
+    #
+    #
+    #     tk.mainloop()
+    #
+    # def createSet_armor(self):
+    #     tk = Tk()
+    #     newWindow = Toplevel(tk)
+    #     labelExample = Label(tk, newWindow, text = "New Window")
+    #     buttonExample = Button(tk, newWindow, text = "New Window button")
+    #
+    #     labelExample.pack()
+    #     buttonExample.pack()
+    #
+    #
+    #
+    #
+    #     tk.mainloop()
+    #
+    # def createCreate_armor(self):
+    #     tk = Tk()
+    #     newWindow = Toplevel(tk)
+    #     labelExample = Label(tk, newWindow, text = "New Window")
+    #     buttonExample = Button(tk, newWindow, text = "New Window button")
+    #
+    #     labelExample.pack()
+    #     buttonExample.pack()
+    #
+    #
+    #
+    #     tk.mainloop()
+    #
+    # def createCreate_enemy(self):
+    #     tk = Tk()
+    #     newWindow = Toplevel(Tk)
+    #     labelExample = Label(tk, newWindow, text = "New Window")
+    #     buttonExample = Button(tk, newWindow, text = "New Window button")
+    #
+    #     labelExample.pack()
+    #     buttonExample.pack()
+    #
+    #
+    #
+    #     tk.mainloop()
+    #
+    #
+    #
+    # def createSet_enemy(self):
+    #     tk = Tk()
+    #     newWindow = Toplevel(tk)
+    #     labelExample = Label(tk, newWindow, text = "New Window")
+    #     buttonExample = Button(tk, newWindow, text = "New Window button")
+    #
+    #     labelExample.pack()
+    #     buttonExample.pack()
+    #
+    #
+    #
+    #     tk.mainloop()
+    #
+    # def createSet_armor(self):
+    #     tk = Tk()
+    #     newWindow = Toplevel(tk)
+    #     labelExample = Label(tk, newWindow, text = "New Window")
+    #     buttonExample = Button(tk, newWindow, text = "New Window button")
+    #
+    #     labelExample.pack()
+    #     buttonExample.pack()
+    #
+    #
+    #
+    #
+    #     tk.mainloop()
+
+
+
+
+
+
+
+
+
 
 class Game:
     avatar = None

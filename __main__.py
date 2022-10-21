@@ -23,5 +23,4 @@ if __name__ == '__main__':
     # game = Game()
     # while True:
     #     main(game)
-    GameWindow().createSetWeapon()
-    
+    GameWindow().open_window()

@@ -8,30 +8,31 @@ from items.items import Armor, Weapon, armors_path, weapons_path
 from avatar.avatar import Avatar, avatars_path, enemies_path
 
 
-
 def print_parts(parts):
     for i in range(len(parts)):
         print(f"{i}:", f"{parts[i]}")
+
+
 class GameWindow:
     window = Tk()
-
-
-
-
-
-
-
 
     def __init__(self):
         self.window.title("CHOICE OF THE BEST!")
         self.window.geometry('400x250')
-        self.lbl = Label(self.window, text="Welcome to the game!")
-        self.lbl.grid(column=3, row=2)
-        self.txt = Entry(self.window,width=10)
-        self.txt.grid(column=1, row=0)
-        self.btn = Button(self.window, text="Go!", command=self.clicked)
+        self.btn = Button(
+            self.window,
+            text="Set armor",
+            command=self.createSetArmor
+        )
+        self.btn2 = Button(
+            self.window,
+            text="Set weapon",
+            command=self.createSetWeapon
+        )
         self.btn.grid(column=2, row=0)
-        self.btn_exit = Button(self.window, text="Exit", command=self.window.destroy)
+        self.btn2.grid(column=2, row=1)
+        self.btn_exit = Button(self.window, text="Exit",
+                               command=self.window.destroy)
         self.btn_exit.grid(column=0, row=1)
 
     def clicked(self):
@@ -42,17 +43,33 @@ class GameWindow:
     def open_window(self):
         self.window.mainloop()
 
-    def createSetWeapon(self):
+    def create_weapon(self):
         tk = Tk()
         newWindow = Frame(tk)
-        labelExample = Label(newWindow, text = "New Window")
-        buttonExample = Button(newWindow, text = "New Window button")
+        tk.title("Create weapon")
+        tk.geometry('400x250')
+        labelExample = Label(newWindow, text="New Window")
+        buttonExample = Button(newWindow, text="New Window button")
+        btn_exit = Button(
+            newWindow,
+            text="Exit",
+            command=tk.destroy
+        )
+        newWindow.pack()
+        labelExample.pack()
+        buttonExample.pack()
+        btn_exit.pack()
+
+        tk.mainloop()
+
+    def create_armor(self):
+        tk = Tk()
+        newWindow = Frame(tk)
+        labelExample = Label(newWindow, text="New Window")
+        buttonExample = Button(newWindow, text="New Window button")
 
         labelExample.pack()
         buttonExample.pack()
-
-
-
 
         newWindow.mainloop()
     #
@@ -152,14 +169,6 @@ class GameWindow:
     #
     #
     #     tk.mainloop()
-
-
-
-
-
-
-
-
 
 
 class Game:
@@ -276,8 +285,6 @@ class Game:
         self.boss.set_amunition(enemy_armor, "armor", "hp")
         print(enemy_armor)
 
-
-
     def start(self):
         while self.avatar.hp > 0 and self.boss.hp > 0:
 
@@ -300,7 +307,7 @@ class Game:
 
     def __str__(self):
 
-        return '\n'.join([str(self.avatar) , str(self.boss) ])
+        return '\n'.join([str(self.avatar), str(self.boss)])
 
     def view(self):
         print(self)

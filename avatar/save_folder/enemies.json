@@ -3,5 +3,10 @@
         "name": "enemy",
         "hp": 100,
         "power": 20
+    },
+    {
+        "name": "dragon",
+        "hp": 200,
+        "power": 100
     }
 ]

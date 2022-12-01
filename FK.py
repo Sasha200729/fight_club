@@ -17,26 +17,26 @@ class GameWindow:
     window = Tk()
 
     def __init__(self):
-        self.window.title("CHOICE OF THE BEST!")
+        self.window.title("Main menu")
         self.window.geometry('400x250')
         self.btn = Button(
             self.window,
-            text="Set armor",
+            text="Create armor",
             command=self.create_armor
         )
         self.btn2 = Button(
             self.window,
-            text="Set weapon",
+            text="Create weapon",
             command=self.create_weapon
         )
         self.btn3 = Button(
             self.window,
-            text="Set avatar",
+            text="Create avatar",
             command=self.create_avatar
         )
         self.btn4 = Button(
             self.window,
-            text="Set enemy",
+            text="Create enemy",
             command=self.create_enemy
         )
         # self.btn.grid(column=2, row=0)
@@ -65,8 +65,15 @@ class GameWindow:
         newWindow = Frame(tk)
         tk.title("Create weapon")
         tk.geometry('400x250')
-        labelExample = Label(newWindow, text="New Window")
-        buttonExample = Button(newWindow, text="New Window button")
+        labelExample = Label(newWindow, text="Create weapon")
+        labelExample.grid(column=3, row = 5)
+        entry = Entry(newWindow, width = 10)
+        eentry = Entry(newWindow, width = 10)
+        enstry = Entry(newWindow, width = 10)
+        qentry = Entry(newWindow, width = 10)
+
+        buttonExample = Button(newWindow, text="Create weapon")
+
         btn_exit = Button(
             newWindow,
             text="Exit",
@@ -75,6 +82,12 @@ class GameWindow:
         newWindow.pack()
         labelExample.pack()
         buttonExample.pack()
+        entry.pack()
+        eentry.pack()
+        enstry.pack()
+        qentry.pack()
+
+
         btn_exit.pack()
 
         tk.mainloop()
@@ -82,36 +95,62 @@ class GameWindow:
     def create_armor(self):
         tk = Tk()
         newWindow = Frame(tk)
-        labelExample = Label(tk, text="New Window")
-        buttonExample = Button(tk, text="New Window button")
-
+        tk.title("Create armor")
+        tk.geometry('400x250')
+        labelExample = Label(tk, text="Create armor")
+        buttonExample = Button(tk, text="Create armor")
+        entry = Entry(tk, width = 10)
+        eentry = Entry(tk, width = 10)
+        enstry = Entry(tk, width = 10)
+        qentry = Entry(tk, width = 10)
         labelExample.pack()
+        entry.pack()
+        eentry.pack()
+        enstry.pack()
+        qentry.pack()
         buttonExample.pack()
+        tk.mainloop()
 
-        newWindow.mainloop()
 
     def create_avatar(self):
         tk = Tk()
         newWindow = Frame(tk)
+        tk.title("Create avatar")
+        tk.geometry('400x250')
         labelExample1 = Label(tk, text="Create avatar")
-        buttonExample2 = Button(tk, text="New Window button")
-        buttonExample1 = Button(tk, text="New  button")
-
+        buttonExample2 = Button(tk, text="Create avatar")
+        buttonExample1 = Button(tk, text="Set avatar")
+        entry = Entry(tk, width = 7)
+        eentry = Entry(tk, width = 10)
+        enstry = Entry(tk, width = 10)
+        qentry = Entry(tk, width = 10)
         labelExample1.pack()
         buttonExample2.pack()
         buttonExample1.pack()
-        newWindow.mainloop()
+        entry.pack()
+        eentry.pack()
+        enstry.pack()
+        qentry.pack()
+        tk.mainloop()
 
     def create_enemy(self):
         tk = Tk()
         newWindow = Frame(tk)
-        labelExample = Label(tk, text="New Window")
-        buttonExample = Button(tk, text="New Window button")
-
+        tk.title("Create enemy")
+        tk.geometry('400x250')
+        labelExample = Label(tk, text="Create enemy")
+        buttonExample = Button(tk, text="Create enemy")
+        entry = Entry(tk, width = 10)
+        eentry = Entry(tk, width = 10)
+        enstry = Entry(tk, width = 10)
+        qentry = Entry(tk, width = 10)
         labelExample.pack()
         buttonExample.pack()
-
-        newWindow.mainloop()
+        entry.pack()
+        eentry.pack()
+        enstry.pack()
+        qentry.pack()
+        tk.mainloop()
 
 
 class Game:
